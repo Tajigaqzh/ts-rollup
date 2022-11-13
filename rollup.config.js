@@ -1,19 +1,21 @@
 console.log(process.env);
 import ts from 'rollup-plugin-typescript2'
 import path from 'path'
+import { fileURLToPath } from 'url';
 import serve from 'rollup-plugin-serve'
 import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
 import resolve from 'rollup-plugin-node-resolve'
 import repacle from 'rollup-plugin-replace'
- 
+ const __fileName = fileURLToPath(import.meta.url)
+ const __dirName = path.dirname(__fileName)
 const isDev = () => {
     return process.env.NODE_ENV === 'development'
 }
 export default {
     input: "./src/main.ts",
     output: {
-        file: path.resolve(__dirname, './lib/index.js'),
+        file: path.resolve(__dirName, './lib/index.js'),
         format: "umd",
         sourcemap: true
     },

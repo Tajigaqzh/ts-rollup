@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "rollup构建ts项目",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env NODE_ENV=development  rollup -c -w",
