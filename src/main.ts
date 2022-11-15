@@ -44,15 +44,8 @@ class Dispatch implements EventInterface {
 	off(name: string, fn: Function) {
 		let eventName = this.list[name];
 		if (eventName && fn) {    
-			eventName.forEach((item, index) => {
-				if (item === fn) {
-					// funIndex = index;
-                    eventName.splice(index, 1)
-                    return;
-				}
-			});
-			// let index = evnetName.findIndex((fns) => fns === fn);
-			// evnetName.splice(index, 1);
+			let index = eventName.findIndex((fns) => fns === fn);
+			eventName.splice(index, 1);
 		} else {
 			console.error("该事件未监听");
 		}
